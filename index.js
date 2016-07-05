@@ -188,7 +188,7 @@ function planeMaker (horizontal, vertical) {
   var vVertical = vertical * 4;
 
   // Load a texture, set wrap mode to repeat
-  var texture = new THREE.TextureLoader().load('https://cdn.rawgit.com/bryik/aframe-graph-component/master/examples/assets/grid-textures/grid3.png');
+  var texture = new THREE.TextureLoader().load('https://cdn.rawgit.com/bryik/aframe-scatter-component/master/assets/grid.png');
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   // should be: texture.anisotropy = renderer.getMaxAnisotropy();
