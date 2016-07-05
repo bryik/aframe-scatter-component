@@ -1,6 +1,6 @@
 ## aframe-scatter-component
 
-An experimental mix of A-Frame and D3 that generates 3D scatter plots in [A-Frame](https://aframe.io).
+An experimental mix of A-Frame and D3 that generates 3D scatter plots.
 
 ### Properties
 
