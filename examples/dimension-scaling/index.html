@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>A-Frame Scatter Component - Dimension Scaling</title>
+    <script src="../build.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <a-scene antialias="true">
+      <a-assets></a-assets>
+      <a-entity position="0 1.2 5">
+        <a-entity camera wasd-controls look-controls></a-entity>
+      </a-entity>
+      <!-- Uniform scaling -->
+      <a-entity position="-3 0 0" graph="width: 0.5; height: 0.5; depth: 0.5"></a-entity>
+      <a-entity position="0 0 0" graph="id: 1; width: 1; height: 1; depth: 1"></a-entity>
+      <a-entity position="3 0 0" graph="id: 2; width: 2; height: 2; depth: 2"></a-entity>
+      <!-- Non-uniform scaling -->
+      <!-- All of these still have problems with texture scaling (due to z-axis) -->
+      <a-entity position="-3 0 -5" graph="id: 3; width: 2; height: 1; depth: 1"></a-entity>
+      <a-entity position="0 0 -5" graph="id: 4; width: 1; height: 2; depth: 1"></a-entity>
+      <a-entity position="3 0 -5" graph="id: 5; width: 1; height: 1; depth: 2"></a-entity>
+      <!-- Depth and height, but not width -->
+      <a-entity position="6 0 -5" graph="id: 6; width: 1; height: 2; depth: 2"></a-entity>
+      <a-sky color="#fff"></a-sky>
+    </a-scene>
+  </body>
+</html>

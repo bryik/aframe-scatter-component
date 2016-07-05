@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>A-Frame Scatter Component - Plot a few points from CSV</title>
+    <script src="../build.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <a-scene antialias="true">
+      <a-entity position="0 0.5 2">
+        <a-entity camera look-controls wasd-controls></a-entity>
+      </a-entity>
+      <a-entity graph="csv: lotsofdata.csv;"></a-entity>
+      <a-sky color="#fff"></a-sky>
+    </a-scene>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3: Transitioning points to randomized values, plus rescaled axes!</title>
+		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<style type="text/css">
+
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<p>Click on this text to update the chart with new data values as many times as you like!</p>
+
+		<script type="text/javascript">
+
+			//Width and height
+			var w = 500;
+			var h = 300;
+			var padding = 30;
+
+			//Dynamic, random dataset
+			var dataset = [];											//Initialize empty array
+			d3.csv("lotsofdataXY.csv", function(data) {
+				data.forEach(function(d) {
+					d.x = +d.x;
+					d.y = +d.y;
+				});
+			  plotData(data)
+			});
+
+			function plotData(data) {
+
+				var dataset = data;
+
+			  //Create scale functions
+			  var xExtent = d3.extent(dataset, function(d) { return d.x });
+			  var xScale = d3.scale.linear()
+			  					 .domain(xExtent)
+			  					 .range([0, w]);
+
+				var yExtent = d3.extent(dataset, function(d) { return d.y });
+			  var yScale = d3.scale.linear()
+			  					 .domain(yExtent)
+			  					 .range([h, 0]);
+
+			  //Define X axis
+			  var xAxis = d3.svg.axis()
+			  				  .scale(xScale)
+			  				  .orient("bottom")
+			  				  .ticks(5);
+
+			  //Define Y axis
+			  var yAxis = d3.svg.axis()
+			  				  .scale(yScale)
+			  				  .orient("left")
+			  				  .ticks(5);
+
+			  //Create SVG element
+			  var svg = d3.select("body")
+			  			.append("svg")
+			  			.attr("width", w)
+			  			.attr("height", h);
+
+			  //Create circles
+			  svg.selectAll("circle")
+			     .data(dataset)
+			     .enter()
+			     .append("circle")
+			     .attr("cx", function(d) {
+			     		return xScale(d.x);
+			     })
+			     .attr("cy", function(d) {
+			     		return yScale(d.y);
+			     })
+			     .attr("r", 2);
+
+			  //Create X axis
+			  svg.append("g")
+			  	.attr("class", "x axis")
+			  	.attr("transform", "translate(0," + (h - padding) + ")")
+			  	.call(xAxis);
+
+			  //Create Y axis
+			  svg.append("g")
+			  	.attr("class", "y axis")
+			  	.attr("transform", "translate(" + padding + ",0)")
+			  	.call(yAxis);
+			}
+
+
+
+
+
+		</script>
+	</body>
+</html>
