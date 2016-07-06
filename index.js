@@ -114,8 +114,7 @@ AFRAME.registerComponent('graph', {
         var xExtent = d3.extent(data, function (d) { return d.x; });
         var xScale = d3.scale.linear()
                        .domain(xExtent)
-                       .range([xRange[0], xRange[1]])
-                       .clamp('true');
+                       .range([xRange[0], xRange[1]]);
 
         var yExtent = d3.extent(data, function (d) { return d.y; });
         var yScale = d3.scale.linear()
