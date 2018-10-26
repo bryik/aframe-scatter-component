@@ -49,7 +49,7 @@ Additionally, forking this project might get you part of the way or at least giv
 Since D3 is a dependency, you'll need to set the charset to UTF-8 in the script tag.
 
 ```html
-<script src="https://rawgit.com/bryik/aframe-graph-component/master/dist/aframe-graph-component.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/gh/bryik/aframe-graph-component@856687ff0214cbbabef4189507af93c1f72ae4a9/dist/aframe-graph-component.min.js" charset="utf-8"></script>
 ```
 
 ### References
